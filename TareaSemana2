@@ -1,0 +1,59 @@
+//
+1. Entramos a Amazon Web Service (AWS) para levantar nuestro servidor haciendo los debidos
+   procedimientos para crear nuestra instancia (Launch, preferencias del servidor, ubicacion, etc)
+   hasta lograr hacer funcionar nuestra consola linux.
+
+ paso 1: Iniciar sesion previamente en la pagina de AWS
+ paso 2: En el buscador de la pagina de inicio buscamos "EC2"
+ paso 3: En la barra lateral buscamos la opcion "Instances"
+ paso 4: Presionamos el boton "Launch Instances"
+ paso 5: Buscamos la opcion "Amazon Linux AMI (HVM),SSD Volume Type", version 64-bit(x86)
+ paso 6: Damos clic en el boton "Next: Configure instance Details"
+ paso 7: continuamos en la siguiente pagina y revisamos que la opcion "Subnet" este en "subnet-2578b643 | Default in us-east-1a"
+         y dejamos Auto-assign Public IP "Disable"
+ paso 8: damos clic en el boton "Next: Add Storge"
+ paso 9: Continuamos haciendo clic en el boton "Next: Add Tags"
+ paso 10: Damos clic en el boton "Next: Add Tags" y luego escribimos en el campo key la palabra "Name"
+          y en el campo "Value" nuestro nombre como usuario que está creando la instancia
+ paso 11: Hacemos clic en el boton "Next: Configure Security Group"
+ paso 12: Si previamente ya habiamos creado una instancia con nuestro nombre como en la imagen anterior, solamente damos clic en 
+          "Select an existing segurity group" y elegimos la instancia que contenga nuestro nombre, de lo contrario, hacemos clic 
+          en "Create a new segurity group" y luego hacemos clic en el boton "Review and Launch"
+ paso 13: Hacemos clic en el boton " Launch"
+ paso 14: En la siguiente ventana emergente en el primer seleccionador buscamos la opcion: "without a key" y luego marcamos el checkbox
+          que inicia diciendo "i acknowledge...." y presionamos el boton  "Launch Instances"
+ paso 15: Hacemos clic en el boton "View Instances"
+ paso 16: Hacemos clic en el checkbox al lado de la instancia con nuestro nombre 
+ paso 17: Hacemos clic en el boton "Connect"
+ paso 18: en el siguiente cuadro verificamos que este en la pestaña EC2 instance Connect y damos click en boton Connect
+ paso 19: Abremos llegado a nuestra consola Linux propiciada por nuestro servidor.
+
+2.Instalar node en Linux
+
+En la consola usamos los siguientes comandos
+
+paso 1: sudo yum update
+paso 2: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+paso 3: . ~/.nvm/nvm.sh
+paso 4: nvm install node
+paso 5: node -e "console.log('Running Node.js ' + process.version)"
+paso 6: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+
+3.Instalar Github y usar el codigo fuente a trabajar
+
+En la consola usamos los siguientes comandos
+
+paso 1: sudo yum install git
+paso 2 codigo fuente: git clone https://github.com/abkunal/Chat-App-using-Socket.io.git
+paso 3: cd Chat-App-using-Socket.io
+paso 4: npm install
+paso 5: npm install -g pm2
+
+4. Configurar nuestro servidor
+
+en la consola usamos los siguientes comandos
+
+paso 1: pm2 start app.js
+paso 2: curl 127.0.0.1:5000
+paso 3: Al escribir nuestra ip publica (ubicada en nuestra instancia) en el buscador el programa se estara ejecutando.
+//
