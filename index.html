@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <title>como crear una VPC en AWS</title>
+</head>
+
+<body>
+
+    <h1>Configuracion VPC</h1>
+    <div>
+        <h4>paso 1: Buscamos la herramienta VPC en AWS</h4>
+        <img src="tarea/vpc.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 2: En la columna izquierda buscamos la opcion VPC, luego precionamos sobre el boton Create VPC</h4>
+        <img src="tarea/vpc1.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 3: Colocamos el nombre a nuestra VPC y configuramos nuestra IPv4, sin hacer ninguna otra configuracion tocamos el boton Create VPC</h4>
+        <img src="tarea/vpc2.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 4: Nos dirigimos nuevamente a la barra izquiera y buscamos Subnets, luego tocamos el boton "create subnet"</h4>
+        <img src="tarea/vpc3.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 5: Verficamos que nuestra VPC creada anteriormente este seleccionada</h4>
+        <img src="tarea/vpc4.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 6: Comenzaremos configurando una subnet publica, se sugiere usar un "name subnet" que la identifique como publica</h4>
+        <h4>"Availabity zone" puede usarse en cualquiera de las opciones considerando recordar este dato al momento de configurar nuestra primera subnet privada.</h4>
+        <h4>IPv4 CIDR BLOCK debe de mantener una secuencia.</h4>
+        <h4>Usando el boton "add new subnet" podemos abrir un nuevo formulario de configuracion subnet</h4>
+
+        <img src="tarea/vpc5.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 7: Ahora configuramos la subnet privada, al igual que en la subnet publica utilizamos un nombre para identificarla como privada (esto no la convierte en una subnet privada)</h4>
+        <h4>"Availabity Zone" debe de estar configurada en la misma zona de la anterior subnet publica. IPv4 CIDR BLOCK debe ser distinta siguiendo la secuencia de la subnet anterior</h4>
+        
+        <img src="tarea/vpc6.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 8:Confirguramos nuestra segunda subnet publica, la diferencia recae en "Availabity Zone" donde se configura en una zona distinta y esta sera la misma de la segunda subnet privada</h4>
+        <h4>IPv4 CIDR BLOCK mantiene la secuancia de las anteriores Subnets</h4>
+        <img src="tarea/vpc7.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 9:Configuramos nuestra segunda subnet privada, "Availabity Zone" es la misma que en la segunda subnet publica</h4>
+        <h4>IPv4 CIDR BLOCK mantiene la secuancia de las anteriores Subnets</h4>
+        <img src="tarea/vpc8.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 10: Al volver al menu buscamos en la barra "Elastic IP" y precionamos el boton "Allocate Elastic IP Adress"</h4>
+        <img src="tarea/vpc9.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 11: Llenamo el tag con una key=name y un valor para identificarla, luego presionamos el boton "Allocate"</h4>
+        <img src="tarea/vpc10.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 12: Al volver al menu buscamos en la barra "route table" y presionamos el boton "create route table"</h4>
+        <img src="tarea/vpc11.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 13: Configuramos nuestra primera route table para nuestras subnets privadas, usamos un nombre que la identifique para uso privado</h4>
+        <h4>Seleccionamos en VPC nuestra vpc creada para el proyecto y presionamos el boton "create route table"</h4>     
+        <img src="tarea/vpc12.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 14: Configurar una segunda route table para nuestras subnet publicas</h4>
+        <img src="tarea/vpc13.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 15: Volvermo al menu y seleccionamos Internet Gateway y luego presionamos el boton "create Internet Gateway"</h4>
+        <img src="tarea/vpc14.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 16: Solo le damos un nombre que identifique y presionamos el boton "Create Internet Gateway" para configurar las rutas de nuestras subnet publicas</h4>
+        <img src="tarea/vpc15.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 17: Verifiquemos que nuestro Internet Gateway esta attached a nuestra VPC, sino hacer las configuraciones desde el boton accion</h4>
+        <img src="tarea/vpc16.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 18: Volvemos al menu y buscamos Nat Gateway y presionamos el boton "Nat Gateway" para configurar las rutas de nuestras subnets privadas</h4>
+        <img src="tarea/vpc17.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 19: Le damos un nombre que pueda identificarla, seleccionamos una SUBNET PUBLICA y seleccionamos nuestra ELASTIC IP creada para nuestro proyecto</h4>
+        <img src="tarea/vpc18.jpg" style="max-width:100%;height:auto;">
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 20: Damos click en el boton "create NAT Gateway"</h4>
+        <img src="tarea/vpc19.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 21: seleccionamos subnets en el menu y comenezaremos a editar las rutas de nuestras subnet, seleccionamos la primera subnet publica (de preferencia)</h4>
+        <img src="tarea/vpc20.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 22: damos click en el boton accion y seleccionamos "Edite route table association"</h4>
+        <img src="tarea/vpc21.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 23: En route table Id: seleccionamos nuestra route table configurada para subnets publicas</h4>
+        <img src="tarea/vpc22.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 24: Y damos click en el boton "save"</h4>
+        <img src="tarea/vpc23.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 25: Volviendo al menu de subnet damos click en el link de nuestra route table configurada para subnet publicas</h4>
+        <img src="tarea/vpc24.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 26: Damos click en la pestaña routes y luego en el boton "edit routes"</h4>
+        <img src="tarea/vpc25.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 27:Damos click en "add route"</h4>
+        <img src="tarea/vpc26.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 28: destination siempre debe estar en 0.0.0.0/0 y en target buscamos Internet Gateway</h4>
+        <img src="tarea/vpc27.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 29: Seleccionamos nuestra Internet Gateway y damos click en el boton "save changes"</h4>
+        <h4>ESTE MISMO PROCEDIMIENTO DEBE REALIZARSE CON LA SUBNET PUBLICA 2</h4>
+        <img src="tarea/vpc28.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 30: Volvemos a el menu de subnets y seleccionamos nuestra primera subnet privada</h4>
+        <img src="tarea/vpc29.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 31: Seleccionamos nuestra route table configurada para subnet privadas y presionamos el boton "save"</h4>
+        <img src="tarea/vpc30.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 32: al igual que en el proceso anterio presionamos nuestra route table privada y nos vamos a editar las rutas como</h4>
+        <h4>lo hicimos con nuestras rutas publicas, al editar nuestras rutas seleccionamos como target: NAT Gateway</h4> 
+        <img src="tarea/vpc31.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 33: Seleccionamos nuestra NAT Gateway y tocamos el boton "save"</h4>
+        <h4>ESTE MISMO PROCEDIMIENTO DEBE REALIZARSE CON LA SUBNET PRIVADA 2</h4>
+        <img src="tarea/vpc32.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <p></p>
+   <h1>Configurarion Auto Scalling Group</h1> 
+    <div>
+        <h4>paso 1: Nos vamos al menu principal de AWS y buscamos EC2</h4>
+        <img src="tarea/vpc33.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 2: Seleccionamos en el menu lateral izquiero "Auto Scalling Groups"</h4>
+        <img src="tarea/vpc34.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 3: presionamos el boton "Create Auto Scalling Group"</h4>
+        <img src="tarea/vpc35.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 4: Le damos un nombre representativo de nuestro proyecto y luego elegimos un launch template que NO TENGA CONFIGURADO UN GRUPO DE SEGURIDAD</h4>
+        <h4>Luego presionamos el boton "next"</h4> 
+        <img src="tarea/vpc36.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 5:Configuramos nuestra VPC y luego en Availabity zone and subnets seleccionamos SOLO NUESTRAS SUBNETS PRIVADAS</h4>
+        <img src="tarea/vpc37.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 6:Damos next a los siguientes pasos haciendo las configuraciones que encesitemos y revisamos la pagina final dando "Create Auto Scalling Group"</h4>
+        <img src="tarea/vpc38.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 7:Seleccionamos en el menu lateral izquierdo Target Group y damos click en el boton "Create Target Group"</h4>
+        <img src="tarea/vpc39.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 8: Llenamos los espacios con un nombre que identifique nuestro target group y VPC: seleccionamos nuestra VPC</h4>
+        <h4>Damos click en create Target Group</h4>
+        <img src="tarea/vpc40.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 9: Damos click en ambos checkbox de nuestras subnets creadas y damos click en el boton "includes as pending below"</h4>
+        <img src="tarea/vpc41.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 10: Movemos la pantalla hacia abajo y damos click en el boton "Create Target Group"</h4>
+        <img src="tarea/vpc42.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <p></p>
+    <h1>Configurarion LOAD BALANCER</h1> 
+    <div>
+        <h4>paso 1: En el menu principal lateral izquierdo seleccionamos Load Balancer y damos click en el boton "Creat Load Balancer"</h4>
+        <img src="tarea/vpc43.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 2:Seleccionamos la primera opcion: Application Load Balancer y damos click en el boton "create"</h4>
+        <img src="tarea/vpc44.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 3: Le damos un nombre a nuestro LOAD BALANCER</h4>
+        <img src="tarea/vpc45.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 4: Confirmamos nuestra VPC y la seleccionamos, damos click en los checkbox que indican las Availabity zone</h4>
+        <h4>Seleccionamos nuestras subnets publicas 1 y 2</h4>
+        <img src="tarea/vpc46.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 5:Dejamos security group en default o como preferencia podemos crear o usar uno propio, y seleccionamos en Default action nuestro target group</h4>
+        <img src="tarea/vpc47.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 6: Damos click en "create load Balancer"</h4>
+        <img src="tarea/vpc48.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 7: Damos click en el boton al lado de nuestro DNS name para copiar el link en donde nuestra aplicacion se ejecutara</h4>
+        <img src="tarea/vpc49.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>paso 8: Si todos los pasos se siguieron al pie de la letra entonces estaremos viendo nuestra app funcionando</h4>
+        <img src="tarea/vpc50.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+    <p></p>
+    <div>
+        <h4>plus: Si nuestro programa no funciona revisar el grupo de seguridad y tener las siguientes configuraciones</h4>
+        <img src="tarea/vpc51.jpg" style="max-width:100%;height:auto;">
+
+    </div>
+</body>
+
+</html>
