@@ -1,0 +1,25 @@
+<table>
+    <thead>
+<tr>  
+    <td>Nombre</td>
+    <td>Periodo de Rotacion</td>
+    <td>Orbita</td>
+    <td>Diametro</td>
+    <td>Clima</td>
+    <td>Gravedad</td>
+    <td>Terreno</td>
+
+</tr>
+    </thead>
+    <tbody>
+<tr *ngFor="let planeta of planets.results">
+    <td>{{planeta.name}}</td>
+    <td>{{planeta.rotation_period}}</td>
+    <td>{{planeta.orbital_period}}</td>
+    <td>{{planeta.diameter}}</td>
+    <td>{{planeta.climate}}</td>
+    <td>{{planeta.gravity}}</td>
+    <td>{{planeta.terrain}}</td>
+</tr>
+    </tbody>
+</table>
